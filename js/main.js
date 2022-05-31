@@ -37,6 +37,54 @@ if((n1 >= 1) && (n1 <= 100) && (n2 >= 1) && (n2 <= 100) && (n3 >= 1) && (n3 <= 1
 
 }
 
+//3. Realizar un algortimo para adivinar un número entre el 1 y el 100 en el menor número de pasos posibles
+/*function adivinaElNumero(){
+    alert("Piensa un número entre el número 1 y el 100");
+    let l = 1;
+    let r = 100;
+    let medio;
+    while(r >= 1 && l <101){
+        medio = l + Math.floor((r-l)/2);//3
+        if(confirm(`Tu número es ${medio}?`))//numerosDonde=6
+            return medio;
+
+        if(confirm(`Tu número es menor a ${medio}?`))
+            r = medio - 1;
+        else
+            l = medio + 1;//4
+        console.log(l,r,medio)
+    }
+  return -1;
+
+}
+function tuNumeroEs(){
+    const NumeroAdivinado = adivinaElNumero();
+    NumeroAdivinado === -1 ? alert("Hiciste trampa brou, tu número no está en el rango especificado"):alert("Tu número es " + NumeroAdivinado);
+}
+tuNumeroEs();*/
+
+function adivinar(){
+	let superior = 100;
+	let inferior = 0;
+	let noEncontrado = true;
+	while(noEncontrado){
+		let mid = parseInt( inferior + ((superior-inferior)/2));
+		if(((superior-inferior)/2)<1){
+			noEncontrado = false;
+			alert("Tu número es el "+(parseInt(mid)+1));
+			break;
+		}
+		let res = confirm("Tu número es menor o igual a "+ mid);
+		if(res){
+			superior=mid;
+		}else{
+			inferior=mid;
+		}
+	}
+}
+adivinar();
+
+
 //4. Solicitar un entero (entre el 100 y el 200) y determinar si es múltiplo de 3
 let n = parseFloat(prompt("Ingresa el un número entre el 100 y el 200")); 
 if((n >= 100) && (n <= 200)){
